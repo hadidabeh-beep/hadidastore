@@ -10,14 +10,14 @@
     <style>
         :root {
             --bg-color: #080d1a;
-            --card-bg: rgba(30, 41, 59, 0.7);
+            --card-bg: rgba(30, 41, 59, 0.85);
             --accent-blue: #00d2ff;
             --accent-purple: #9d4edf;
             --accent-green: #10b981;
             --accent-gold: #f59e0b;
             --text-main: #f8fafc;
             --text-muted: #94a3b8;
-            --border-color: rgba(255, 255, 255, 0.1);
+            --border-color: rgba(255, 255, 255, 0.12);
             --input-bg: #0f172a;
         }
 
@@ -40,7 +40,7 @@
             background: var(--card-bg);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
-            padding: 30px;
+            padding: 25px;
             border-radius: 24px;
             width: 100%;
             max-width: 480px;
@@ -74,7 +74,7 @@
             background: rgba(16, 185, 129, 0.15);
             border: 1px solid var(--accent-green);
             color: #34d399;
-            padding: 8px 12px;
+            padding: 10px 14px;
             border-radius: 12px;
             font-size: 13px;
             font-weight: 700;
@@ -87,14 +87,28 @@
         .form-group { margin-bottom: 16px; }
         label { display: block; margin-bottom: 6px; color: #cbd5e1; font-size: 13px; font-weight: 700; }
 
-        input[type="text"], input[type="tel"], select, input[type="file"] {
+        input[type="text"], input[type="tel"], select, textarea, input[type="file"] {
             width: 100%; padding: 12px 14px; border-radius: 12px;
             border: 1px solid var(--border-color); background: var(--input-bg);
             color: var(--text-main); font-size: 13.5px; font-weight: 600; outline: none;
             transition: all 0.3s ease;
         }
 
-        input:focus, select:focus {
+        /* إصلاح اتجاه الأرقام لمنع تداخل الكلام */
+        select option {
+            direction: rtl;
+            text-align: right;
+            background-color: #0f172a;
+            color: #fff;
+            padding: 8px;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        input:focus, select:focus, textarea:focus {
             border-color: var(--accent-blue);
             box-shadow: 0 0 12px rgba(0, 210, 255, 0.3);
         }
@@ -161,7 +175,6 @@
             <img src="logo.jpg.jpeg" alt="عبد الرحمن وسيف" class="logo-img">
             <h1>عبد الرحمن وسيف | AB&S BOOSTING ⚡</h1>
             
-            <!-- زر الدعم عبر الواتساب -->
             <a href="https://wa.me/201070681047" target="_blank" class="whatsapp-support">
                 💬 خدمة العملاء والدعم الفني (WhatsApp): 01070681047
             </a>
@@ -174,6 +187,8 @@
                     <option value="pubg">🎮 القسم الأول: شدات ببجي (PUBG UC)</option>
                     <option value="insta_followers">👤 القسم الثاني: متابعين إنستغرام</option>
                     <option value="insta_likes">❤️ القسم الثالث: إعجابات إنستغرام</option>
+                    <option value="insta_comments">💬 القسم الرابع: تعليقات إنستغرام</option>
+                    <option value="insta_reposts">🔄 القسم الخامس: مشاركات / ريبوست (Reposts)</option>
                 </select>
             </div>
 
@@ -181,12 +196,12 @@
             <div class="form-group" id="pubgGroup">
                 <label>اختر الباقة:</label>
                 <select id="pubgPackage">
-                    <option value="60 UC - 40 EGP">60 UC - 40 جنيه مصري</option>
-                    <option value="325 UC - 210 EGP">325 UC - 210 جنيه مصري</option>
-                    <option value="660 UC - 400 EGP">660 UC - 400 جنيه مصري</option>
-                    <option value="1800 UC - 1050 EGP">1800 UC - 1050 جنيه مصري</option>
-                    <option value="3850 UC - 2200 EGP">3850 UC - 2200 جنيه مصري</option>
-                    <option value="8100 UC - 4300 EGP">8100 UC - 4300 جنيه مصري</option>
+                    <option value="40 EGP -> 60 UC">40 جنيه مصري ⬅️ 60 UC</option>
+                    <option value="210 EGP -> 325 UC">210 جنيه مصري ⬅️ 325 UC</option>
+                    <option value="400 EGP -> 660 UC">400 جنيه مصري ⬅️ 660 UC</option>
+                    <option value="1050 EGP -> 1800 UC">1050 جنيه مصري ⬅️ 1800 UC</option>
+                    <option value="2200 EGP -> 3850 UC">2200 جنيه مصري ⬅️ 3850 UC</option>
+                    <option value="4300 EGP -> 8100 UC">4300 جنيه مصري ⬅️ 8100 UC</option>
                 </select>
                 <label style="margin-top: 10px;">آيدي اللعبة (Player ID):</label>
                 <input type="text" id="playerId" placeholder="أدخل ID هنا">
@@ -196,12 +211,12 @@
             <div class="form-group hidden" id="instaFollowersGroup">
                 <label>اختر باقة المتابعين:</label>
                 <select id="instaFollowersPkg">
-                    <option value="500 Follower - 25 EGP">500 متابع - 25 جنيه</option>
-                    <option value="1000 Follower - 75 EGP">1000 متابع - 75 جنيه</option>
-                    <option value="2000 Follower - 100 EGP">2000 متابع - 100 جنيه</option>
-                    <option value="2500 Follower - 125 EGP">2500 متابع - 125 جنيه</option>
-                    <option value="4000 Follower - 170 EGP">4000 متابع - 170 جنيه</option>
-                    <option value="5000 Follower - 200 EGP">5000 متابع - 200 جنيه</option>
+                    <option value="25 EGP -> 500 Follower">25 جنيه ⬅️ 500 متابع</option>
+                    <option value="75 EGP -> 1000 Follower">75 جنيه ⬅️ 1000 متابع</option>
+                    <option value="100 EGP -> 2000 Follower">100 جنيه ⬅️ 2000 متابع</option>
+                    <option value="125 EGP -> 2500 Follower">125 جنيه ⬅️ 2500 متابع</option>
+                    <option value="170 EGP -> 4000 Follower">170 جنيه ⬅️ 4000 متابع</option>
+                    <option value="200 EGP -> 5000 Follower">200 جنيه ⬅️ 5000 متابع</option>
                 </select>
             </div>
 
@@ -209,11 +224,36 @@
             <div class="form-group hidden" id="instaLikesGroup">
                 <label>اختر باقة الإعجابات:</label>
                 <select id="instaLikesPkg">
-                    <option value="100 Likes - 20 EGP">100 إعجاب - 20 جنيه</option>
-                    <option value="200 Likes - 35 EGP">200 إعجاب - 35 جنيه</option>
-                    <option value="300 Likes - 45 EGP">300 إعجاب - 45 جنيه</option>
-                    <option value="400 Likes - 60 EGP">400 إعجاب - 60 جنيه</option>
-                    <option value="500 Likes - 80 EGP">500 إعجاب - 80 جنيه</option>
+                    <option value="20 EGP -> 100 Likes">20 جنيه ⬅️ 100 إعجاب</option>
+                    <option value="35 EGP -> 200 Likes">35 جنيه ⬅️ 200 إعجاب</option>
+                    <option value="45 EGP -> 300 Likes">45 جنيه ⬅️ 300 إعجاب</option>
+                    <option value="60 EGP -> 400 Likes">60 جنيه ⬅️ 400 إعجاب</option>
+                    <option value="80 EGP -> 500 Likes">80 جنيه ⬅️ 500 إعجاب</option>
+                </select>
+            </div>
+
+            <!-- تعليقات إنستغرام -->
+            <div class="form-group hidden" id="instaCommentsGroup">
+                <label>اختر باقة التعليقات:</label>
+                <select id="instaCommentsPkg">
+                    <option value="20 EGP -> 100 Comments">20 جنيه ⬅️ 100 تعليق</option>
+                    <option value="35 EGP -> 200 Comments">35 جنيه ⬅️ 200 تعليق</option>
+                    <option value="45 EGP -> 300 Comments">45 جنيه ⬅️ 300 تعليق</option>
+                    <option value="60 EGP -> 400 Comments">60 جنيه ⬅️ 400 تعليق</option>
+                    <option value="80 EGP -> 500 Comments">80 جنيه ⬅️ 500 تعليق</option>
+                </select>
+                <label style="margin-top: 10px;">اكتب التعليقات المطلوبة (تعليق في كل سطر):</label>
+                <textarea id="customComments" placeholder="اكتب التعليقات التي تريدها هنا..."></textarea>
+            </div>
+
+            <!-- مشاركات وريبوست إنستغرام -->
+            <div class="form-group hidden" id="instaRepostsGroup">
+                <label>اختر باقة المشاركات/الريبوست:</label>
+                <select id="instaRepostsPkg">
+                    <option value="45 EGP -> 100 Reposts">45 جنيه ⬅️ 100 ريبوست</option>
+                    <option value="85 EGP -> 200 Reposts">85 جنيه ⬅️ 200 ريبوست</option>
+                    <option value="200 EGP -> 500 Reposts">200 جنيه ⬅️ 500 ريبوست</option>
+                    <option value="380 EGP -> 1000 Reposts">380 جنيه ⬅️ 1000 ريبوست</option>
                 </select>
             </div>
 
@@ -247,7 +287,7 @@
         </form>
     </div>
 
-    <!-- شاشة الانتظار مع الكود المرجعي -->
+    <!-- شاشة الانتظار -->
     <div id="processingScreen" class="processing-screen">
         <div class="spinner"></div>
         <h2 style="color: var(--accent-blue); margin-bottom: 6px;">جاري تنفيذ طلبك...</h2>
@@ -261,7 +301,6 @@
             ⚡ فريق عبد الرحمن وسيف يراجع طلبك وينفذه الآن!
         </p>
 
-        <!-- زر التواصل مع الدعم بالطلب المرجعي -->
         <a id="whatsappOrderLink" href="#" target="_blank" class="whatsapp-support" style="background: var(--accent-green); color: #fff;">
             📱 متابعة حالة الطلب عبر الواتساب
         </a>
@@ -275,6 +314,8 @@
         document.getElementById('pubgGroup').classList.add('hidden');
         document.getElementById('instaFollowersGroup').classList.add('hidden');
         document.getElementById('instaLikesGroup').classList.add('hidden');
+        document.getElementById('instaCommentsGroup').classList.add('hidden');
+        document.getElementById('instaRepostsGroup').classList.add('hidden');
         document.getElementById('instaTargetGroup').classList.add('hidden');
 
         if (service === 'pubg') {
@@ -284,6 +325,12 @@
             document.getElementById('instaTargetGroup').classList.remove('hidden');
         } else if (service === 'insta_likes') {
             document.getElementById('instaLikesGroup').classList.remove('hidden');
+            document.getElementById('instaTargetGroup').classList.remove('hidden');
+        } else if (service === 'insta_comments') {
+            document.getElementById('instaCommentsGroup').classList.remove('hidden');
+            document.getElementById('instaTargetGroup').classList.remove('hidden');
+        } else if (service === 'insta_reposts') {
+            document.getElementById('instaRepostsGroup').classList.remove('hidden');
             document.getElementById('instaTargetGroup').classList.remove('hidden');
         }
     }
@@ -299,7 +346,6 @@
         const myChatId = "1478944867";
         const partnerChatId = "7441159331";
 
-        // توليد كود مرجعي فريد
         const orderCode = "#ABS-" + Math.floor(10000 + Math.random() * 90000);
 
         const service = document.getElementById('service').value;
@@ -317,28 +363,36 @@
             message += `🎮 الخدمة: شحن شدات ببجي\n📦 الباقة: ${pkg}\n🆔 الآيدي: ${id}\n📱 رقم المحوّل: ${phone}\n🖼️ سكرين شوت: ${hasScreenshot}`;
 
         } else if (service.startsWith('insta_')) {
-            let pkg = service === 'insta_followers' ? document.getElementById('instaFollowersPkg').value : document.getElementById('instaLikesPkg').value;
+            let pkg = "";
+            let extraInfo = "";
+
+            if (service === 'insta_followers') pkg = document.getElementById('instaFollowersPkg').value;
+            if (service === 'insta_likes') pkg = document.getElementById('instaLikesPkg').value;
+            if (service === 'insta_reposts') pkg = document.getElementById('instaRepostsPkg').value;
+            if (service === 'insta_comments') {
+                pkg = document.getElementById('instaCommentsPkg').value;
+                const commentsText = document.getElementById('customComments').value;
+                if(!commentsText) { alert("يرجى كتابة التعليقات المطلوبة!"); return; }
+                extraInfo = `\n💬 التعليقات المطلوب إرسالها:\n${commentsText}`;
+            }
+
             const target = document.getElementById('instaTarget').value;
             const phone = document.getElementById('senderPhone').value;
 
             if (!target || !phone) { alert("يرجى ملء جميع البيانات المطلوب إدخالها!"); return; }
-            message += `📸 الخدمة: إنستغرام (${service === 'insta_followers' ? 'متابعين' : 'إعجابات'})\n📦 الباقة: ${pkg}\n👤 الرابط/اليوزر: ${target}\n📱 رقم المحوّل: ${phone}\n🖼️ سكرين شوت: ${hasScreenshot}`;
+            message += `📸 الخدمة: إنستغرام (${service})\n📦 الباقة: ${pkg}\n👤 الرابط/اليوزر: ${target}\n📱 رقم المحوّل: ${phone}${extraInfo}\n🖼️ سكرين شوت: ${hasScreenshot}`;
         }
 
-        // إرسال الرسالة لك ولشريكك
         sendTelegramMessage(myChatId, botToken, message);
         sendTelegramMessage(partnerChatId, botToken, message);
 
-        // إظهار شاشة معالجة الطلب والتصاميم المحدثة
         document.getElementById('mainFormScreen').style.display = 'none';
         document.getElementById('processingScreen').style.display = 'block';
         document.getElementById('orderCodeDisplay').textContent = orderCode;
 
-        // تجهيز رابط الواتساب الجاهز برقم الطلب
         const waMsg = encodeURIComponent(`مرحباً فريق AB&S BOOSTING، أريد الاستفسار عن حالة طلبي المرجعي: ${orderCode}`);
         document.getElementById('whatsappOrderLink').href = `https://wa.me/201070681047?text=${waMsg}`;
 
-        // العداد التنازلي
         let timeInSeconds = 300;
         const timerElement = document.getElementById('timer');
 
