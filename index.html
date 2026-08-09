@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HADIDA STORE | حديدة ستور</title>
+    <title>عبد الرحمن وسيف | AB&S BOOSTING</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
@@ -14,7 +14,6 @@
             --accent-blue: #38bdf8;
             --accent-purple: #8b5cf6;
             --accent-green: #22c55e;
-            --accent-red: #ef4444;
             --accent-gold: #eab308;
             --text-main: #f8fafc;
             --text-muted: #94a3b8;
@@ -38,7 +37,7 @@
 
         .container {
             background: var(--card-bg);
-            padding: 30px;
+            padding: 25px;
             border-radius: 20px;
             width: 100%;
             max-width: 500px;
@@ -57,27 +56,37 @@
         }
 
         .header { text-align: center; margin-bottom: 20px; }
+        .logo-img {
+            width: 100%;
+            max-width: 280px;
+            height: auto;
+            border-radius: 12px;
+            margin-bottom: 10px;
+            border: 2px solid var(--accent-blue);
+            box-shadow: 0 0 15px rgba(56, 189, 248, 0.3);
+        }
+
         .header h1 {
-            font-size: 26px; font-weight: 900;
+            font-size: 22px; font-weight: 900;
             background: linear-gradient(135deg, #38bdf8, #8b5cf6);
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
         }
 
         .promo-banner {
-            background: linear-gradient(135deg, rgba(239, 68, 68, 0.2), rgba(139, 92, 246, 0.2));
-            border: 1px dashed var(--accent-red);
+            background: linear-gradient(135deg, rgba(56, 189, 248, 0.15), rgba(139, 92, 246, 0.15));
+            border: 1px dashed var(--accent-blue);
             padding: 10px; border-radius: 10px;
-            text-align: center; font-size: 13px; font-weight: 700; color: #fca5a5;
+            text-align: center; font-size: 13px; font-weight: 700; color: var(--accent-blue);
             margin-bottom: 20px;
         }
 
-        .form-group { margin-bottom: 18px; }
-        label { display: block; margin-bottom: 8px; color: #cbd5e1; font-size: 14px; font-weight: 700; }
+        .form-group { margin-bottom: 16px; }
+        label { display: block; margin-bottom: 6px; color: #cbd5e1; font-size: 13.5px; font-weight: 700; }
 
-        input[type="text"], input[type="tel"], select {
-            width: 100%; padding: 14px 16px; border-radius: 10px;
+        input[type="text"], input[type="tel"], select, input[type="file"] {
+            width: 100%; padding: 12px 14px; border-radius: 10px;
             border: 1.5px solid var(--border-color); background: var(--input-bg);
-            color: var(--text-main); font-size: 14px; font-weight: 600; outline: none;
+            color: var(--text-main); font-size: 13.5px; font-weight: 600; outline: none;
             transition: all 0.3s ease;
         }
 
@@ -89,25 +98,25 @@
         .payment-info {
             background: rgba(14, 165, 233, 0.1);
             border-right: 4px solid var(--accent-blue);
-            padding: 15px; border-radius: 8px; font-size: 13.5px;
-            margin-bottom: 20px; line-height: 1.7; color: #e2e8f0;
+            padding: 12px; border-radius: 8px; font-size: 13px;
+            margin-bottom: 15px; line-height: 1.6; color: #e2e8f0;
         }
 
-        .phone-badges { display: flex; gap: 10px; margin-top: 8px; flex-wrap: wrap; }
+        .phone-badges { display: flex; gap: 8px; margin-top: 6px; flex-wrap: wrap; }
         .phone-badge {
             background: #0f172a; border: 1px solid var(--accent-blue);
-            padding: 4px 10px; border-radius: 8px; font-weight: 800; color: #38bdf8; font-size: 14px;
+            padding: 4px 10px; border-radius: 8px; font-weight: 800; color: #38bdf8; font-size: 13px;
             direction: ltr;
         }
 
         .task-box {
             background: rgba(234, 179, 8, 0.1);
             border: 1px solid var(--accent-gold);
-            padding: 15px; border-radius: 10px; margin-bottom: 15px; font-size: 13px;
+            padding: 12px; border-radius: 10px; margin-bottom: 12px; font-size: 12.5px; line-height: 1.6;
         }
 
         .btn-submit {
-            width: 100%; padding: 16px; border: none; border-radius: 12px;
+            width: 100%; padding: 15px; border: none; border-radius: 12px;
             background: linear-gradient(135deg, var(--accent-green), #15803d);
             color: #fff; font-weight: 800; font-size: 16px; cursor: pointer;
             transition: all 0.3s ease; box-shadow: 0 6px 20px rgba(34, 197, 94, 0.3);
@@ -116,20 +125,20 @@
         .btn-submit:hover { transform: translateY(-2px); }
 
         .processing-screen {
-            display: none; text-align: center; padding: 20px 0;
+            display: none; text-align: center; padding: 10px 0;
         }
 
         .spinner {
-            width: 60px; height: 60px; border: 6px solid var(--border-color);
-            border-top: 6px solid var(--accent-blue); border-radius: 50%;
-            animation: spin 1s linear infinite; margin: 0 auto 20px auto;
+            width: 55px; height: 55px; border: 5px solid var(--border-color);
+            border-top: 5px solid var(--accent-blue); border-radius: 50%;
+            animation: spin 1s linear infinite; margin: 0 auto 15px auto;
         }
 
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 
         .timer-box {
-            font-size: 36px; font-weight: 900; color: var(--accent-gold);
-            margin: 15px 0; background: var(--input-bg); padding: 10px; border-radius: 10px;
+            font-size: 32px; font-weight: 900; color: var(--accent-gold);
+            margin: 12px 0; background: var(--input-bg); padding: 10px; border-radius: 10px;
             border: 1px solid var(--border-color); letter-spacing: 2px;
         }
 
@@ -139,81 +148,66 @@
 <body>
 
 <div class="container">
-    <!-- شاشة إدخال البيانات -->
     <div id="mainFormScreen">
         <div class="header">
-            <h1>HADIDA STORE ⚡</h1>
-            <p style="color: var(--text-muted); font-size: 13px;">الشحن الفوري والمباشر</p>
+            <!-- الشعار الجديد -->
+            <img src="https://i.ibb.co/6R2p2Qp/logo.jpg" alt="عبد الرحمن وسيف" class="logo-img" onerror="this.style.display='none'">
+            <h1>عبد الرحمن وسيف | AB&S BOOSTING ⚡</h1>
+            <p style="color: var(--text-muted); font-size: 12px; margin-top: 4px;">أقوى العروض على جميع الخدمات - تعامل آمن - ثقة - ضمان</p>
         </div>
 
         <div class="promo-banner">
-            🔥 خصم 10% على الشدات + خصم 50% على جميع خدمات إنستغرام!
+            🔥 شحن فورى لجميع الخدمات | يوجد عروض ومسموح بالتفاوض!
         </div>
 
         <form id="orderForm">
             <div class="form-group">
-                <label>اختر الخدمة المطلوبة:</label>
+                <label>اختر القسم المطلوب:</label>
                 <select id="service" onchange="toggleFields()">
-                    <option value="pubg">🎮 شحن شدات ببجي (PUBG UC)</option>
-                    <option value="insta_followers">👤 متابعين إنستغرام (خصم 50%)</option>
-                    <option value="insta_likes">❤️ لايكات إنستغرام (خصم 50%)</option>
-                    <option value="insta_comments">💬 تعليقات إنستغرام (خصم 50%)</option>
-                    <option value="insta_reposts">🔄 مشاركات/ريبوست (خصم 50%)</option>
-                    <option value="free_challenge">🏆 التحدي المجاني (احصل على 60 شدة مجاناً)</option>
+                    <option value="pubg">🎮 القسم الأول: شدات ببجي (PUBG UC)</option>
+                    <option value="insta_followers">👤 القسم الثاني: متابعين إنستغرام</option>
+                    <option value="insta_likes">❤️ القسم الثالث: إعجابات إنستغرام</option>
+                    <option value="free_challenge">🏆 تحدي 1000 متابع مجاناً!</option>
                 </select>
             </div>
 
-            <!-- باقات ببجي -->
+            <!-- قائمة شدات ببجي حسب الصورة -->
             <div class="form-group" id="pubgGroup">
-                <label>اختر الباقة (خصم 10%):</label>
+                <label>اختر الباقة:</label>
                 <select id="pubgPackage">
-                    <option value="60 UC - 40 EGP">60 شدة - 40 جنيه (بدلاً من 45)</option>
-                    <option value="325 UC - 198 EGP">325 شدة - 198 جنيه (بدلاً من 220)</option>
-                    <option value="660 UC - 387 EGP">660 شدة - 387 جنيه (بدلاً من 430)</option>
-                    <option value="1800 UC - 990 EGP">1800 شدة - 990 جنيه (بدلاً من 1100)</option>
+                    <option value="60 UC - 40 EGP">60 UC - 40 جنيه مصري</option>
+                    <option value="325 UC - 210 EGP">325 UC - 210 جنيه مصري</option>
+                    <option value="660 UC - 400 EGP">660 UC - 400 جنيه مصري</option>
+                    <option value="1800 UC - 1050 EGP">1800 UC - 1050 جنيه مصري</option>
+                    <option value="3850 UC - 2200 EGP">3850 UC - 2200 جنيه مصري</option>
+                    <option value="8100 UC - 4300 EGP">8100 UC - 4300 جنيه مصري</option>
                 </select>
                 <label style="margin-top: 10px;">آيدي اللعبة (Player ID):</label>
                 <input type="text" id="playerId" placeholder="أدخل ID هنا">
             </div>
 
-            <!-- خدمات إنستغرام (متابعين) -->
+            <!-- قائمة متابعين إنستغرام حسب الصورة -->
             <div class="form-group hidden" id="instaFollowersGroup">
-                <label>اختر باقة المتابعين (خصم 50%):</label>
+                <label>اختر باقة المتابعين:</label>
                 <select id="instaFollowersPkg">
-                    <option value="1000 Follower - 15 EGP">1000 متابع - 15 جنيه</option>
-                    <option value="2500 Follower - 35 EGP">2500 متابع - 35 جنيه</option>
-                    <option value="5000 Follower - 65 EGP">5000 متابع - 65 جنيه</option>
-                    <option value="10000 Follower - 120 EGP">10,000 متابع - 120 جنيه</option>
+                    <option value="500 Follower - 25 EGP">500 متابع - 25 جنيه</option>
+                    <option value="1000 Follower - 75 EGP">1000 متابع - 75 جنيه</option>
+                    <option value="2000 Follower - 100 EGP">2000 متابع - 100 جنيه</option>
+                    <option value="2500 Follower - 125 EGP">2500 متابع - 125 جنيه</option>
+                    <option value="4000 Follower - 170 EGP">4000 متابع - 170 جنيه</option>
+                    <option value="5000 Follower - 200 EGP">5000 متابع - 200 جنيه</option>
                 </select>
             </div>
 
-            <!-- خدمات إنستغرام (لايكات) -->
+            <!-- قائمة إعجابات إنستغرام حسب الصورة -->
             <div class="form-group hidden" id="instaLikesGroup">
-                <label>اختر باقة اللايكات (خصم 50%):</label>
+                <label>اختر باقة الإعجابات:</label>
                 <select id="instaLikesPkg">
-                    <option value="500 Likes - 5 EGP">500 لايك - 5 جنيهات</option>
-                    <option value="1000 Likes - 8 EGP">1000 لايك - 8 جنيهات</option>
-                    <option value="5000 Likes - 30 EGP">5000 لايك - 30 جنيه</option>
-                </select>
-            </div>
-
-            <!-- خدمات إنستغرام (تعليقات) -->
-            <div class="form-group hidden" id="instaCommentsGroup">
-                <label>اختر باقة التعليقات (خصم 50%):</label>
-                <select id="instaCommentsPkg">
-                    <option value="50 Comments - 10 EGP">50 تعليق - 10 جنيهات</option>
-                    <option value="100 Comments - 18 EGP">100 تعليق - 18 جنيه</option>
-                    <option value="500 Comments - 75 EGP">500 تعليق - 75 جنيه</option>
-                </select>
-            </div>
-
-            <!-- خدمات إنستغرام (ريبوست) -->
-            <div class="form-group hidden" id="instaRepostsGroup">
-                <label>اختر باقة المشاركات/الريبوست (خصم 50%):</label>
-                <select id="instaRepostsPkg">
-                    <option value="500 Reposts - 10 EGP">500 ريبوست - 10 جنيهات</option>
-                    <option value="1000 Reposts - 15 EGP">1000 ريبوست - 15 جنيه</option>
-                    <option value="5000 Reposts - 60 EGP">5000 ريبوست - 60 جنيه</option>
+                    <option value="100 Likes - 20 EGP">100 إعجاب - 20 جنيه</option>
+                    <option value="200 Likes - 35 EGP">200 إعجاب - 35 جنيه</option>
+                    <option value="300 Likes - 45 EGP">300 إعجاب - 45 جنيه</option>
+                    <option value="400 Likes - 60 EGP">400 إعجاب - 60 جنيه</option>
+                    <option value="500 Likes - 80 EGP">500 إعجاب - 80 جنيه</option>
                 </select>
             </div>
 
@@ -223,17 +217,16 @@
                 <input type="text" id="instaTarget" placeholder="@username أو رابط المنشور">
             </div>
 
-            <!-- التحدي المجاني -->
+            <!-- تحدي الـ 1000 متابع -->
             <div class="form-group hidden" id="challengeGroup">
                 <div class="task-box">
-                    🎯 <strong>شروط التحدي المجاني:</strong><br>
-                    1. قم بإتمام المهمة المطلوبة.<br>
-                    2. ادخل كود الإثبات الذي ظهر لك بعد الإتمام لاستلام الهدية.
+                    🏆 <strong>تحدي الـ 1000 متابع مجاناً!</strong><br>
+                    قم بإتمام المهمة المخصصة للحصول على كود الإثبات، ثم ادخل الكود ويوزر حسابك لاستلام الـ 1000 متابع فوراً.
                 </div>
-                <label>كود التحدي المكتمل:</label>
-                <input type="text" id="challengeCode" placeholder="أدخل كود الإثبات">
-                <label style="margin-top: 10px;">آيدي ببجي لاستلام 60 شدة مجاناً:</label>
-                <input type="text" id="freePlayerId" placeholder="أدخل ID هنا">
+                <label>كود إثبات التحدي المكتمل:</label>
+                <input type="text" id="challengeCode" placeholder="أدخل كود الإثبات هنا">
+                <label style="margin-top: 10px;">يوزر حساب الإنستغرام:</label>
+                <input type="text" id="freeInstaUser" placeholder="@username">
             </div>
 
             <!-- بيانات التحويل -->
@@ -250,19 +243,25 @@
                 <input type="tel" id="senderPhone" placeholder="010xxxxxxx">
             </div>
 
+            <!-- خيار إرفاق سكرين شوت التحويل -->
+            <div class="form-group" id="screenshotGroup">
+                <label>إرفاق سكرين شوت التحويل (اختياري/لتسريع الشحن):</label>
+                <input type="text" id="screenshotNote" placeholder="اكتب اسم صاحب الرقم أو ملحوظة عن التحويل">
+            </div>
+
             <button type="button" class="btn-submit" onclick="processOrder()">تأكيد الطلب والشحن الآن ⚡</button>
         </form>
     </div>
 
-    <!-- شاشة معالجة الطلب والانتظار 5 دقائق -->
+    <!-- شاشة معالجة الطلب -->
     <div id="processingScreen" class="processing-screen">
         <div class="spinner"></div>
-        <h2 style="color: var(--accent-blue); margin-bottom: 8px;">جاري تنفيذ طلبك...</h2>
-        <p style="font-size: 13px; color: var(--text-muted);">تم إرسال بياناتك تلقائياً إلى السيرفر. يرجى الانتظار وعدم إغلاق هذه الصفحة حتى تمام الشحن.</p>
+        <h2 style="color: var(--accent-blue); margin-bottom: 6px;">جاري تنفيذ طلبك...</h2>
+        <p style="font-size: 12.5px; color: var(--text-muted);">تم إرسال بياناتك تلقائياً إلى السيرفر. يرجى الانتظار وعدم إغلاق هذه الصفحة حتى تمام الشحن.</p>
         
         <div class="timer-box" id="timer">05:00</div>
 
-        <p style="font-size: 12px; color: var(--accent-gold);">⚡ فريق HADIDA STORE ينفذ طلبك الآن فوراً</p>
+        <p style="font-size: 13px; color: var(--accent-gold); font-weight: 700;">⚡ فريق عبد الرحمن وسيف يراجع طلبك وينفذه الآن فوراً!</p>
     </div>
 </div>
 
@@ -273,13 +272,12 @@
         document.getElementById('pubgGroup').classList.add('hidden');
         document.getElementById('instaFollowersGroup').classList.add('hidden');
         document.getElementById('instaLikesGroup').classList.add('hidden');
-        document.getElementById('instaCommentsGroup').classList.add('hidden');
-        document.getElementById('instaRepostsGroup').classList.add('hidden');
         document.getElementById('instaTargetGroup').classList.add('hidden');
         document.getElementById('challengeGroup').classList.add('hidden');
         
         document.getElementById('paymentNotice').classList.remove('hidden');
         document.getElementById('phoneGroup').classList.remove('hidden');
+        document.getElementById('screenshotGroup').classList.remove('hidden');
 
         if (service === 'pubg') {
             document.getElementById('pubgGroup').classList.remove('hidden');
@@ -289,72 +287,62 @@
         } else if (service === 'insta_likes') {
             document.getElementById('instaLikesGroup').classList.remove('hidden');
             document.getElementById('instaTargetGroup').classList.remove('hidden');
-        } else if (service === 'insta_comments') {
-            document.getElementById('instaCommentsGroup').classList.remove('hidden');
-            document.getElementById('instaTargetGroup').classList.remove('hidden');
-        } else if (service === 'insta_reposts') {
-            document.getElementById('instaRepostsGroup').classList.remove('hidden');
-            document.getElementById('instaTargetGroup').classList.remove('hidden');
         } else if (service === 'free_challenge') {
             document.getElementById('challengeGroup').classList.remove('hidden');
             document.getElementById('paymentNotice').classList.add('hidden');
             document.getElementById('phoneGroup').classList.add('hidden');
+            document.getElementById('screenshotGroup').classList.add('hidden');
         }
     }
 
+    function sendTelegramMessage(chatId, botToken, message) {
+        const fullUrl = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`;
+        fetch(fullUrl).catch(err => console.error("Error sending to " + chatId, err));
+    }
+
     function processOrder() {
-        // دمَجنا التوكن لتجاوز حظر GitHub الآلي
         const botToken = "8852055802:" + "AAGidZBnAt7V2pmR5EGtliov_KtLXYJV7BY";
-        const chatId = "1478944867"; 
+        
+        // الأيديهات المربوطة (أنت وشريكك)
+        const myChatId = "1478944867";
+        const partnerChatId = "7441159331";
 
         const service = document.getElementById('service').value;
-        let message = "⚡ طلب جديد - HADIDA STORE\n\n";
+        let message = "⚡ طلب جديد - عبد الرحمن وسيف (AB&S BOOSTING)\n\n";
 
         if (service === 'pubg') {
             const pkg = document.getElementById('pubgPackage').value;
             const id = document.getElementById('playerId').value;
             const phone = document.getElementById('senderPhone').value;
+            const note = document.getElementById('screenshotNote').value;
 
             if (!id || !phone) { alert("يرجى ملء جميع البيانات المطلوب إدخالها!"); return; }
             message += `🎮 الخدمة: شحن شدات ببجي\n📦 الباقة: ${pkg}\n🆔 الآيدي: ${id}\n📱 رقم المحوّل: ${phone}`;
+            if (note) message += `\n📝 ملاحظة التحويل: ${note}`;
 
         } else if (service.startsWith('insta_')) {
-            let pkg = "";
-            if (service === 'insta_followers') pkg = document.getElementById('instaFollowersPkg').value;
-            if (service === 'insta_likes') pkg = document.getElementById('instaLikesPkg').value;
-            if (service === 'insta_comments') pkg = document.getElementById('instaCommentsPkg').value;
-            if (service === 'insta_reposts') pkg = document.getElementById('instaRepostsPkg').value;
-
+            let pkg = service === 'insta_followers' ? document.getElementById('instaFollowersPkg').value : document.getElementById('instaLikesPkg').value;
             const target = document.getElementById('instaTarget').value;
             const phone = document.getElementById('senderPhone').value;
+            const note = document.getElementById('screenshotNote').value;
 
             if (!target || !phone) { alert("يرجى ملء جميع البيانات المطلوب إدخالها!"); return; }
-            message += `📸 الخدمة: إنستغرام (${service})\n📦 الباقة: ${pkg}\n👤 الرابط/اليوزر: ${target}\n📱 رقم المحوّل: ${phone}`;
+            message += `📸 الخدمة: إنستغرام (${service === 'insta_followers' ? 'متابعين' : 'إعجابات'})\n📦 الباقة: ${pkg}\n👤 الرابط/اليوزر: ${target}\n📱 رقم المحوّل: ${phone}`;
+            if (note) message += `\n📝 ملاحظة التحويل: ${note}`;
 
         } else if (service === 'free_challenge') {
             const code = document.getElementById('challengeCode').value;
-            const id = document.getElementById('freePlayerId').value;
+            const user = document.getElementById('freeInstaUser').value;
 
-            if (!code || !id) { alert("يرجى إدخال كود التحدي وآيدي اللعبة!"); return; }
-            message += `🏆 الخدمة: التحدي المجاني\n🔑 كود الإثبات: ${code}\n🆔 آيدي ببجي: ${id}`;
+            if (!code || !user) { alert("يرجى إدخال كود التحدي ويوزر الحساب!"); return; }
+            message += `🏆 الخدمة: تحدي الـ 1000 متابع مجاناً\n🔑 كود الإثبات: ${code}\n👤 يوزر إنستغرام: ${user}`;
         }
 
-        // إرسال الطلب إلى التلجرام بدون رموز لتجنب خطأ التنسيق
-        const fullUrl = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`;
+        // إرسال الإشعار لك ولشريكك معاً
+        sendTelegramMessage(myChatId, botToken, message);
+        sendTelegramMessage(partnerChatId, botToken, message);
 
-        fetch(fullUrl)
-            .then(response => response.json())
-            .then(data => {
-                console.log("Telegram Response:", data);
-                if (!data.ok) {
-                    alert("تنبيه تلجرام: " + data.description);
-                }
-            })
-            .catch(error => {
-                console.error("Fetch Error:", error);
-            });
-
-        // تحويل الشاشة للعداد التنازلي (5 دقائق)
+        // تحويل الشاشة للعداد التنازلي
         document.getElementById('mainFormScreen').style.display = 'none';
         document.getElementById('processingScreen').style.display = 'block';
 
@@ -372,7 +360,7 @@
             if (timeInSeconds <= 0) {
                 clearInterval(countdown);
                 timerElement.textContent = "تم الشحن ✅";
-                alert("تم تنفيذ طلبك بنجاح! شكراً لاستخدامك HADIDA STORE.");
+                alert("تم تنفيذ طلبك بنجاح من فريق عبد الرحمن وسيف! شكراً لثقتكم بنا.");
             }
             timeInSeconds--;
         }, 1000);
