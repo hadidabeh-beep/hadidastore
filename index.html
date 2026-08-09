@@ -115,7 +115,6 @@
 
         .btn-submit:hover { transform: translateY(-2px); }
 
-        /* شاشة الانتظار الـ 5 دقائق */
         .processing-screen {
             display: none; text-align: center; padding: 20px 0;
         }
@@ -271,7 +270,6 @@
     function toggleFields() {
         const service = document.getElementById('service').value;
 
-        // إخفاء جميع الحقول
         document.getElementById('pubgGroup').classList.add('hidden');
         document.getElementById('instaFollowersGroup').classList.add('hidden');
         document.getElementById('instaLikesGroup').classList.add('hidden');
@@ -305,9 +303,9 @@
     }
 
     function processOrder() {
-        const botToken = "8852055802:AAEkmYtYFuSkjOJEi0SFolv7N6wm25-1riY";
-        // ضع Chat ID الخاص بشريكك مكان CHAT_ID_PARTNER إذا وصلك
-        const chatIds = ["1478944867"]; 
+        // تأكد من وضع التوكن الجديد الذي حصلت عليه من BotFather هنا إذا كان متغيراً
+        const botToken = "8852055802:AAFO58P38RRLtX86TWL76c1z7AVqzb2TIY8";
+        const chatId = "1478944867"; 
 
         const service = document.getElementById('service').value;
         let message = `⚡ *طلب جديد - HADIDA STORE*%0A%0A`;
@@ -318,7 +316,6 @@
             const phone = document.getElementById('senderPhone').value;
 
             if (!id || !phone) { alert("يرجى ملء جميع البيانات المطلوب إدخالها!"); return; }
-
             message += `🎮 *الخدمة:* شحن شدات ببجي%0A📦 *الباقة:* ${pkg}%0A🆔 *الآيدي:* \`${id}\`%0A📱 *رقم المحوّل:* \`${phone}\``;
 
         } else if (service.startsWith('insta_')) {
@@ -332,7 +329,6 @@
             const phone = document.getElementById('senderPhone').value;
 
             if (!target || !phone) { alert("يرجى ملء جميع البيانات المطلوب إدخالها!"); return; }
-
             message += `📸 *الخدمة:* إنستغرام (${service})%0A📦 *الباقة:* ${pkg}%0A👤 *الرابط/اليوزر:* ${target}%0A📱 *رقم المحوّل:* \`${phone}\``;
 
         } else if (service === 'free_challenge') {
@@ -340,16 +336,25 @@
             const id = document.getElementById('freePlayerId').value;
 
             if (!code || !id) { alert("يرجى إدخال كود التحدي وآيدي اللعبة!"); return; }
-
             message += `🏆 *الخدمة:* التحدي المجاني%0A🔑 *كود الإثبات:* \`${code}\`%0A🆔 *آيدي ببجي:* \`${id}\``;
         }
 
-        // إرسال الطلب تلقائياً للبوت عبر API التلجرام
-        chatIds.forEach(chatId => {
-            fetch(`https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${message}&parse_mode=Markdown`);
-        });
+        // إرسال الطلب مع إظهار أخطاء التلجرام في حال وجودها
+        const fullUrl = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${message}&parse_mode=Markdown`;
 
-        // تحويل الشاشة إلى الانتظار الـ 5 دقائق
+        fetch(fullUrl)
+            .then(response => response.json())
+            .then(data => {
+                console.log("Telegram Response:", data);
+                if (!data.ok) {
+                    alert("تنبيه تلجرام: " + data.description);
+                }
+            })
+            .catch(error => {
+                console.error("Fetch Error:", error);
+            });
+
+        // تحويل الشاشة للعداد التنازلي (5 دقائق)
         document.getElementById('mainFormScreen').style.display = 'none';
         document.getElementById('processingScreen').style.display = 'block';
 
