@@ -83,7 +83,7 @@
         .form-group { margin-bottom: 16px; }
         label { display: block; margin-bottom: 6px; color: #cbd5e1; font-size: 13.5px; font-weight: 700; }
 
-        input[type="text"], input[type="tel"], select, input[type="file"] {
+        input[type="text"], input[type="tel"], select {
             width: 100%; padding: 12px 14px; border-radius: 10px;
             border: 1.5px solid var(--border-color); background: var(--input-bg);
             color: var(--text-main); font-size: 13.5px; font-weight: 600; outline: none;
@@ -150,8 +150,8 @@
 <div class="container">
     <div id="mainFormScreen">
         <div class="header">
-            <!-- الشعار الجديد -->
-            <img src="https://i.ibb.co/6R2p2Qp/logo.jpg" alt="عبد الرحمن وسيف" class="logo-img" onerror="this.style.display='none'">
+            <!-- مسار اللوجو معدل بالاسم الظاهر في الصورة عندك -->
+            <img src="logo.jpg.jpeg" alt="عبد الرحمن وسيف" class="logo-img">
             <h1>عبد الرحمن وسيف | AB&S BOOSTING ⚡</h1>
             <p style="color: var(--text-muted); font-size: 12px; margin-top: 4px;">أقوى العروض على جميع الخدمات - تعامل آمن - ثقة - ضمان</p>
         </div>
@@ -171,7 +171,7 @@
                 </select>
             </div>
 
-            <!-- قائمة شدات ببجي حسب الصورة -->
+            <!-- قائمة شدات ببجي -->
             <div class="form-group" id="pubgGroup">
                 <label>اختر الباقة:</label>
                 <select id="pubgPackage">
@@ -186,7 +186,7 @@
                 <input type="text" id="playerId" placeholder="أدخل ID هنا">
             </div>
 
-            <!-- قائمة متابعين إنستغرام حسب الصورة -->
+            <!-- قائمة متابعين إنستغرام -->
             <div class="form-group hidden" id="instaFollowersGroup">
                 <label>اختر باقة المتابعين:</label>
                 <select id="instaFollowersPkg">
@@ -199,7 +199,7 @@
                 </select>
             </div>
 
-            <!-- قائمة إعجابات إنستغرام حسب الصورة -->
+            <!-- قائمة إعجابات إنستغرام -->
             <div class="form-group hidden" id="instaLikesGroup">
                 <label>اختر باقة الإعجابات:</label>
                 <select id="instaLikesPkg">
@@ -243,9 +243,9 @@
                 <input type="tel" id="senderPhone" placeholder="010xxxxxxx">
             </div>
 
-            <!-- خيار إرفاق سكرين شوت التحويل -->
+            <!-- ملاحظة سكرين شوت التحويل -->
             <div class="form-group" id="screenshotGroup">
-                <label>إرفاق سكرين شوت التحويل (اختياري/لتسريع الشحن):</label>
+                <label>ملاحظات التحويل / اسم المحوّل (لتأكيد العملية):</label>
                 <input type="text" id="screenshotNote" placeholder="اكتب اسم صاحب الرقم أو ملحوظة عن التحويل">
             </div>
 
@@ -253,7 +253,7 @@
         </form>
     </div>
 
-    <!-- شاشة معالجة الطلب -->
+    <!-- شاشة الانتظار -->
     <div id="processingScreen" class="processing-screen">
         <div class="spinner"></div>
         <h2 style="color: var(--accent-blue); margin-bottom: 6px;">جاري تنفيذ طلبك...</h2>
