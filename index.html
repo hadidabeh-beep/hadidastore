@@ -303,8 +303,8 @@
     }
 
     function processOrder() {
-        // تأكد من وضع التوكن الجديد الذي حصلت عليه من BotFather هنا إذا كان متغيراً
-        const botToken = "8852055802:AAFO58P38RRLtX86TWL76c1z7AVqzb2TIY8";
+        // التوكن الجديد المعدل جاهز
+        const botToken = "8852055802:AAFzl0DB5HxzLpGxjG8j5KKQ7XC-OE4D0L0";
         const chatId = "1478944867"; 
 
         const service = document.getElementById('service').value;
@@ -339,7 +339,7 @@
             message += `🏆 *الخدمة:* التحدي المجاني%0A🔑 *كود الإثبات:* \`${code}\`%0A🆔 *آيدي ببجي:* \`${id}\``;
         }
 
-        // إرسال الطلب مع إظهار أخطاء التلجرام في حال وجودها
+        // إرسال الطلب إلى التلجرام
         const fullUrl = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${message}&parse_mode=Markdown`;
 
         fetch(fullUrl)
